@@ -10,27 +10,41 @@ import com.kairos.prueba.pricesapi.repository.PriceRepository;
 import com.kairos.prueba.pricesapi.service.PriceService;
 
 /**
- * Servicio que contiene la lógica de aplicación para la obtención de precios.
+ * Service implementation that contains the business logic for retrieving prices.
+ * <p>
+ * This class implements the {@link PriceService} interface and uses the {@link PriceRepository}
+ * to interact with the data layer and find the applicable price for a given product, brand,
+ * and application date.
+ * </p>
  */
 @Service
 public class PriceServiceImpl implements PriceService {
 
     private final PriceRepository priceRepository;
 
+    /**
+     * Constructor to inject the {@link PriceRepository} dependency.
+     *
+     * @param priceRepository the repository used to retrieve price data
+     */
     public PriceServiceImpl(PriceRepository priceRepository) {
         this.priceRepository = priceRepository;
     }
 
     /**
-     * Encuentra el precio aplicable para un producto, marca y fecha dada.
+     * Finds the applicable price for a given product, brand, and application date.
+     * <p>
+     * This method delegates to the {@link PriceRepository} to find the price and return it.
+     * </p>
      *
-     * @param productId       ID del producto.
-     * @param brandId         ID de la cadena (marca).
-     * @param applicationDate Fecha de aplicación.
-     * @return Precio aplicable si existe.
+     * @param productId       ID of the product
+     * @param brandId         ID of the brand (chain)
+     * @param applicationDate Date and time for which the price is requested
+     * @return an {@link Optional} containing the applicable {@link Price}, or empty if no price is found
      */
     @Override
-	public Optional<Price> getApplicablePrice(Long productId, Long brandId, LocalDateTime applicationDate) {
+    public Optional<Price> getApplicablePrice(Long productId, Long brandId, LocalDateTime applicationDate) {
+        // Delegate the call to the repository to find the applicable price
         return priceRepository.findApplicablePrice(productId, brandId, applicationDate);
     }
 }

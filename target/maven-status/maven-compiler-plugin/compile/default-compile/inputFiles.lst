@@ -1,5 +1,6 @@
 C:\Users\franc\git\KairosTest\src\main\java\com\kairos\prueba\pricesapi\domain\Price.java
 C:\Users\franc\git\KairosTest\src\main\java\com\kairos\prueba\pricesapi\jpa\adapter\PriceRepositoryAdapter.java
+C:\Users\franc\git\KairosTest\src\main\java\com\kairos\prueba\pricesapi\jpa\config\OpenApiConfig.java
 C:\Users\franc\git\KairosTest\src\main\java\com\kairos\prueba\pricesapi\jpa\converter\LocalDateTimeAttributeConverter.java
 C:\Users\franc\git\KairosTest\src\main\java\com\kairos\prueba\pricesapi\jpa\repository\entity\PriceEntity.java
 C:\Users\franc\git\KairosTest\src\main\java\com\kairos\prueba\pricesapi\jpa\repository\PriceJpaRepository.java
