@@ -19,7 +19,9 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>pricesapi</name>
 	<description>RESTFul API service to get prices according to Kairos exercise</description>
-	<url/>
+	
+	<!-- Project URL -->
+    <url>https://github.com/franciscocilleruelo/KairosTest.git</url>
 	
 	<!-- Licensing information (can be extended later) -->
 	<licenses>
@@ -28,19 +30,19 @@
 	
 	<!-- Developer information -->
 	<developers>
-		<developer>
-			<name>Francisco Cilleruelo Trotter</name>
-			<email>francisco.cilleruelo@gmail.com</email>
-		</developer>
-	</developers>
+        <developer>
+            <id>franciscocilleruelo</id>
+            <name>Francisco Cilleruelo</name>
+            <email>francisco.cilleruelo@gmail.com</email>
+        </developer>
+    </developers>
 	
 	<!-- Source control management (SCM) info -->
 	<scm>
-		<connection/>
-		<developerConnection/>
-		<tag/>
-		<url/>
-	</scm>
+        <connection>scm:git:https://github.com/franciscocilleruelo/KairosTest.git</connection>
+        <developerConnection>scm:git:https://github.com/franciscocilleruelo/KairosTest.git</developerConnection>
+        <url>https://github.com/franciscocilleruelo/KairosTest.git</url>
+    </scm>
 	
 	<!-- Set Java version used for the project -->
 	<properties>
