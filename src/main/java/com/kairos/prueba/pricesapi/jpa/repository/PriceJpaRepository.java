@@ -1,7 +1,7 @@
 package com.kairos.prueba.pricesapi.jpa.repository;
 
 import java.time.LocalDateTime;
-import java.util.Optional;
+import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -19,20 +19,20 @@ import com.kairos.prueba.pricesapi.jpa.repository.entity.PriceEntity;
 public interface PriceJpaRepository extends JpaRepository<PriceEntity, Long> {
 
     /**
-     * Finds the applicable price for a product by checking if the application date falls between 
-     * the start and end dates of a price entry, with the highest priority.
+     * Finds all applicable prices for a product by checking if the application date falls between 
+     * the start and end dates of a price entry.
      * <p>
      * The query filters the results by product ID, brand ID, and ensures the application date
-     * is within the range. It also orders by priority to ensure that the highest priority price is applied.
+     * is within the range.
      * </p>
      *
      * @param productId       the product ID
      * @param brandId         the brand ID
      * @param applicationDate the date and time for which the price is applicable
-     * @return an {@link Optional} containing the applicable {@link PriceEntity}, or empty if no price is found
+     * @return a {@link List} containing all applicable {@link PriceEntity} records
      */
     @Query("SELECT p FROM PriceEntity p WHERE p.productId = :productId AND p.brandId = :brandId " +
-           "AND :applicationDate BETWEEN p.startDate AND p.endDate AND p.priority = 1 " +
+           "AND :applicationDate BETWEEN p.startDate AND p.endDate " +
            "ORDER BY p.priority DESC")
-    Optional<PriceEntity> findApplicablePrice(Long productId, Long brandId, LocalDateTime applicationDate);
+    List<PriceEntity> findApplicablePrices(Long productId, Long brandId, LocalDateTime applicationDate);
 }

@@ -12,9 +12,9 @@ import com.kairos.prueba.pricesapi.rest.dto.PriceResponseDTO;
 import com.kairos.prueba.pricesapi.service.PriceService;
 
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import jakarta.validation.Valid;
-import io.swagger.v3.oas.annotations.responses.ApiResponse;
 
 /**
  * REST controller that exposes the price query endpoint.
