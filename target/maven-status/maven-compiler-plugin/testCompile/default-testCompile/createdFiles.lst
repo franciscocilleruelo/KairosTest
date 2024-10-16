@@ -1,1 +1,5 @@
+com\kairos\prueba\pricesapi\service\impl\PriceServiceImplTest.class
 com\kairos\prueba\pricesapi\PricesapiApplicationTests.class
+com\kairos\prueba\pricesapi\rest\PriceControllerTest.class
+com\kairos\prueba\pricesapi\integration\PriceControllerIntegrationTest.class
+com\kairos\prueba\pricesapi\jpa\adapter\PriceRepositoryAdapterTest.class

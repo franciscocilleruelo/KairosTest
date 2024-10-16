@@ -9,6 +9,7 @@ C:\Users\franc\git\KairosTest\src\main\java\com\kairos\prueba\pricesapi\Pricesap
 C:\Users\franc\git\KairosTest\src\main\java\com\kairos\prueba\pricesapi\repository\PriceRepository.java
 C:\Users\franc\git\KairosTest\src\main\java\com\kairos\prueba\pricesapi\rest\dto\PriceRequestDTO.java
 C:\Users\franc\git\KairosTest\src\main\java\com\kairos\prueba\pricesapi\rest\dto\PriceResponseDTO.java
+C:\Users\franc\git\KairosTest\src\main\java\com\kairos\prueba\pricesapi\rest\handler\ControllerExceptionHandler.java
 C:\Users\franc\git\KairosTest\src\main\java\com\kairos\prueba\pricesapi\rest\PriceController.java
 C:\Users\franc\git\KairosTest\src\main\java\com\kairos\prueba\pricesapi\service\impl\PriceServiceImpl.java
 C:\Users\franc\git\KairosTest\src\main\java\com\kairos\prueba\pricesapi\service\PriceService.java

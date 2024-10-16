@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.kairos.prueba.pricesapi.PricesapiApplicationTests" time="1.061" tests="1" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.kairos.prueba.pricesapi.rest.PriceControllerTest" time="0.345" tests="3" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="21"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -65,9 +65,9 @@
     <property name="java.class.version" value="65.0"/>
     <property name="LOGGED_APPLICATION_NAME" value="[pricesapi] "/>
   </properties>
-  <testcase name="contextLoads" classname="com.kairos.prueba.pricesapi.PricesapiApplicationTests" time="0.005">
-    <system-out><![CDATA[2024-10-16T19:04:30.874+02:00  INFO 14060 --- [pricesapi] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.kairos.prueba.pricesapi.PricesapiApplicationTests]: PricesapiApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-2024-10-16T19:04:30.898+02:00  INFO 14060 --- [pricesapi] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.kairos.prueba.pricesapi.PricesapiApplication for test class com.kairos.prueba.pricesapi.PricesapiApplicationTests
+  <testcase name="testGetPrice_Success" classname="com.kairos.prueba.pricesapi.rest.PriceControllerTest" time="0.017">
+    <system-out><![CDATA[2024-10-16T19:04:31.948+02:00  INFO 14060 --- [pricesapi] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.kairos.prueba.pricesapi.rest.PriceControllerTest]: PriceControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2024-10-16T19:04:31.983+02:00  INFO 14060 --- [pricesapi] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.kairos.prueba.pricesapi.PricesapiApplication for test class com.kairos.prueba.pricesapi.rest.PriceControllerTest
 
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -78,37 +78,14 @@
 
  :: Spring Boot ::                (v3.3.4)
 
-2024-10-16T19:04:30.970+02:00  INFO 14060 --- [pricesapi] [           main] c.k.p.p.PricesapiApplicationTests        : Starting PricesapiApplicationTests using Java 21.0.4 with PID 14060 (started by franc in C:\Users\franc\git\KairosTest)
-2024-10-16T19:04:30.970+02:00  INFO 14060 --- [pricesapi] [           main] c.k.p.p.PricesapiApplicationTests        : No active profile set, falling back to 1 default profile: "default"
-2024-10-16T19:04:31.364+02:00  INFO 14060 --- [pricesapi] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2024-10-16T19:04:31.391+02:00  INFO 14060 --- [pricesapi] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 27 ms. Found 1 JPA repository interface.
-2024-10-16T19:04:31.493+02:00  INFO 14060 --- [pricesapi] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
-2024-10-16T19:04:31.494+02:00  INFO 14060 --- [pricesapi] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-2 - Added connection conn10: url=jdbc:h2:mem:pricesdb user=SA
-2024-10-16T19:04:31.494+02:00  INFO 14060 --- [pricesapi] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
-2024-10-16T19:04:31.495+02:00  INFO 14060 --- [pricesapi] [           main] liquibase.database                       : Set default schema name to PUBLIC
-2024-10-16T19:04:31.538+02:00  INFO 14060 --- [pricesapi] [           main] liquibase.changelog                      : Reading from PUBLIC.DATABASECHANGELOG
-2024-10-16T19:04:31.562+02:00  INFO 14060 --- [pricesapi] [           main] liquibase.lockservice                    : Successfully acquired change log lock
-2024-10-16T19:04:31.563+02:00  INFO 14060 --- [pricesapi] [           main] liquibase.command                        : Using deploymentId: 9098271563
-2024-10-16T19:04:31.564+02:00  INFO 14060 --- [pricesapi] [           main] liquibase.changelog                      : Reading from PUBLIC.DATABASECHANGELOG
-2024-10-16T19:04:31.567+02:00  INFO 14060 --- [pricesapi] [           main] liquibase.util                           : UPDATE SUMMARY
-2024-10-16T19:04:31.567+02:00  INFO 14060 --- [pricesapi] [           main] liquibase.util                           : Run:                          0
-2024-10-16T19:04:31.567+02:00  INFO 14060 --- [pricesapi] [           main] liquibase.util                           : Previously run:               2
-2024-10-16T19:04:31.567+02:00  INFO 14060 --- [pricesapi] [           main] liquibase.util                           : Filtered out:                 0
-2024-10-16T19:04:31.567+02:00  INFO 14060 --- [pricesapi] [           main] liquibase.util                           : -------------------------------
-2024-10-16T19:04:31.568+02:00  INFO 14060 --- [pricesapi] [           main] liquibase.util                           : Total change sets:            2
-2024-10-16T19:04:31.568+02:00  INFO 14060 --- [pricesapi] [           main] liquibase.util                           : Update summary generated
-2024-10-16T19:04:31.568+02:00  INFO 14060 --- [pricesapi] [           main] liquibase.command                        : Update command completed successfully.
-2024-10-16T19:04:31.568+02:00  INFO 14060 --- [pricesapi] [           main] liquibase.ui                             : Liquibase: Update has been successful. Rows affected: 0
-2024-10-16T19:04:31.569+02:00  INFO 14060 --- [pricesapi] [           main] liquibase.lockservice                    : Successfully released change log lock
-2024-10-16T19:04:31.569+02:00  INFO 14060 --- [pricesapi] [           main] liquibase.command                        : Command execution complete
-2024-10-16T19:04:31.597+02:00  INFO 14060 --- [pricesapi] [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2024-10-16T19:04:31.600+02:00  INFO 14060 --- [pricesapi] [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2024-10-16T19:04:31.609+02:00  INFO 14060 --- [pricesapi] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2024-10-16T19:04:31.674+02:00  INFO 14060 --- [pricesapi] [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2024-10-16T19:04:31.675+02:00  INFO 14060 --- [pricesapi] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2024-10-16T19:04:31.778+02:00  WARN 14060 --- [pricesapi] [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2024-10-16T19:04:31.907+02:00  INFO 14060 --- [pricesapi] [           main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:pricesdb'
-2024-10-16T19:04:31.924+02:00  INFO 14060 --- [pricesapi] [           main] c.k.p.p.PricesapiApplicationTests        : Started PricesapiApplicationTests in 1.02 seconds (process running for 8.709)
+2024-10-16T19:04:32.007+02:00  INFO 14060 --- [pricesapi] [           main] c.k.p.p.rest.PriceControllerTest         : Starting PriceControllerTest using Java 21.0.4 with PID 14060 (started by franc in C:\Users\franc\git\KairosTest)
+2024-10-16T19:04:32.007+02:00  INFO 14060 --- [pricesapi] [           main] c.k.p.p.rest.PriceControllerTest         : No active profile set, falling back to 1 default profile: "default"
+2024-10-16T19:04:32.229+02:00  INFO 14060 --- [pricesapi] [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2024-10-16T19:04:32.229+02:00  INFO 14060 --- [pricesapi] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2024-10-16T19:04:32.230+02:00  INFO 14060 --- [pricesapi] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2024-10-16T19:04:32.233+02:00  INFO 14060 --- [pricesapi] [           main] c.k.p.p.rest.PriceControllerTest         : Started PriceControllerTest in 0.248 seconds (process running for 9.018)
 ]]></system-out>
   </testcase>
+  <testcase name="testGetPrice_InvalidDateFormat" classname="com.kairos.prueba.pricesapi.rest.PriceControllerTest" time="0.017"/>
+  <testcase name="testGetPrice_NotFound" classname="com.kairos.prueba.pricesapi.rest.PriceControllerTest" time="0.007"/>
 </testsuite>
