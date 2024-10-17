@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
+import org.springframework.web.server.ResponseStatusException;
 
 /**
  * Global exception handler for the Price API.
@@ -57,4 +58,25 @@ public class ControllerExceptionHandler {
         
         return ResponseEntity.badRequest().body(errors);
     }
+    
+    /**
+     * Handles {@link ResponseStatusException}, which allows custom status codes and messages to be thrown.
+     * <p>
+     * This handler captures the {@link ResponseStatusException} and returns the corresponding status code 
+     * and error message in the response.
+     * </p>
+     *
+     * @param ex the exception that was thrown
+     * @return a {@link ResponseEntity} with the status and message from the exception
+     */
+    @ExceptionHandler(ResponseStatusException.class)
+    public ResponseEntity<Map<String, String>> handleResponseStatusException(ResponseStatusException ex) {
+        Map<String, String> error = new HashMap<>();
+        // Get the custom message provided in the ResponseStatusException
+        error.put("error", ex.getReason());
+
+        // Return the status and the custom error message
+        return ResponseEntity.status(ex.getStatusCode()).body(error);
+    }
+    
 }

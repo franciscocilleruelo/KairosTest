@@ -72,7 +72,8 @@ class PriceControllerTest {
                 .param("productId", "35455")
                 .param("brandId", "1")
                 .param("applicationDate", "2020-06-14T10:00:00"))
-                .andExpect(status().isNotFound());
+                .andExpect(status().isNotFound())
+                .andExpect(jsonPath("$.error").value("Price not found"));
     }
 
     @Test
