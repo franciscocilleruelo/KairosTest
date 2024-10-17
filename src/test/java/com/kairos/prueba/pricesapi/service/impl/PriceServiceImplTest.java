@@ -7,6 +7,7 @@ import static org.mockito.Mockito.when;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Optional;
 
 import org.junit.jupiter.api.BeforeEach;
@@ -50,7 +51,7 @@ class PriceServiceImplTest {
     void testGetApplicablePrice_Success() {
         // Mock the repository to return the sample Price
         when(priceRepository.findApplicablePrice(any(Long.class), any(Long.class), any(LocalDateTime.class)))
-                .thenReturn(Optional.of(price));
+                .thenReturn(Optional.of(List.of(price)));
 
         // Call the service method
         Optional<Price> result = priceService.getApplicablePrice(35455L, 1L, LocalDateTime.of(2020, 6, 14, 10, 0, 0));

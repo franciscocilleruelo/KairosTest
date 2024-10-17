@@ -35,17 +35,17 @@ public class PriceRepositoryAdapter implements PriceRepository {
      * @param productId       the product ID
      * @param brandId         the brand ID
      * @param applicationDate the date and time for which the price is applicable
-     * @return an {@link Optional} containing the applicable {@link Price}, or empty if no price is found
+     * @return an {@link Optional} containing a {@link List} of applicable {@link Price} objects,
+     *         or {@link Optional#empty()} if no prices are found.
      */
     @Override
-    public Optional<Price> findApplicablePrice(Long productId, Long brandId, LocalDateTime applicationDate) {
+    public Optional<List<Price>> findApplicablePrice(Long productId, Long brandId, LocalDateTime applicationDate) {
         // Fetch applicable prices using the repository, ordered by priority DESC
-        List<Price> applicablePrices = priceJpaRepository.findApplicablePrices(productId, brandId, applicationDate).stream()
+    	 List<Price> prices =  priceJpaRepository.findApplicablePrices(productId, brandId, applicationDate).stream()
             .map(PriceMapper.INSTANCE::toDomain) // Convert each PriceEntity to a Price domain object
             .collect(Collectors.toList());
-
-        // Return the highest priority price (first element if there are multiple results)
-        return applicablePrices.stream()
-            .findFirst(); // Find the first price (which is the highest priority due to ordering)
+    	 
+    	// Return the list wrapped in Optional, or Optional.empty() if the list is empty
+         return prices.isEmpty() ? Optional.empty() : Optional.of(prices);
     }
 }

@@ -1,6 +1,7 @@
 package com.kairos.prueba.pricesapi.repository;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Optional;
 
 import com.kairos.prueba.pricesapi.domain.Price;
@@ -22,7 +23,8 @@ public interface PriceRepository {
      * @param productId       the product ID
      * @param brandId         the brand ID
      * @param applicationDate the date and time for which the price is applicable
-     * @return an {@link Optional} containing the applicable {@link Price}, or empty if no price is found
+     * @return an {@link Optional} containing a {@link List} of applicable {@link Price} objects, 
+     *         or an empty {@link Optional} if no prices are found
      */
-    Optional<Price> findApplicablePrice(Long productId, Long brandId, LocalDateTime applicationDate);
+    Optional<List<Price>> findApplicablePrice(Long productId, Long brandId, LocalDateTime applicationDate);
 }

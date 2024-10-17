@@ -44,7 +44,8 @@ public class PriceServiceImpl implements PriceService {
      */
     @Override
     public Optional<Price> getApplicablePrice(Long productId, Long brandId, LocalDateTime applicationDate) {
-        // Delegate the call to the repository to find the applicable price
-        return priceRepository.findApplicablePrice(productId, brandId, applicationDate);
+    	// Delegate the call to the repository to find the applicable prices
+        return priceRepository.findApplicablePrice(productId, brandId, applicationDate)
+                .flatMap(prices -> prices.stream().findFirst()); // Find the first price (highest priority)
     }
 }

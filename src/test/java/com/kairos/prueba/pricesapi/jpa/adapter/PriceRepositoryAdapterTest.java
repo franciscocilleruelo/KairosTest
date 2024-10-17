@@ -1,6 +1,7 @@
 package com.kairos.prueba.pricesapi.jpa.adapter;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
@@ -72,27 +73,29 @@ class PriceRepositoryAdapterTest {
                 .thenReturn(List.of(higherPriorityPriceEntity, lowerPriorityPriceEntity));
 
         // Call the adapter method
-        Optional<Price> result = priceRepositoryAdapter.findApplicablePrice(35455L, 1L, LocalDateTime.of(2020, 6, 14, 10, 0, 0));
+        Optional<List<Price>> result = priceRepositoryAdapter.findApplicablePrice(35455L, 1L, LocalDateTime.of(2020, 6, 14, 10, 0, 0));
 
         // Assert that the result with the highest priority is returned
         assertTrue(result.isPresent());
-        assertEquals(higherPriorityPriceEntity.getProductId(), result.get().getProductId());
-        assertEquals(higherPriorityPriceEntity.getPrice(), result.get().getPrice());
+        assertNotNull(result.get().get(0));
+        assertEquals(higherPriorityPriceEntity.getProductId(), result.get().get(0).getProductId());
+        assertEquals(higherPriorityPriceEntity.getPrice(), result.get().get(0).getPrice());
     }
 
     @Test
     void testFindApplicablePrice_Success_SingleResult() {
         // Mock the JPA repository to return only one result
         when(priceJpaRepository.findApplicablePrices(any(Long.class), any(Long.class), any(LocalDateTime.class)))
-                .thenReturn(List.of(lowerPriorityPriceEntity));
+                .thenReturn(List.of(higherPriorityPriceEntity));
 
         // Call the adapter method
-        Optional<Price> result = priceRepositoryAdapter.findApplicablePrice(35455L, 1L, LocalDateTime.of(2020, 6, 14, 10, 0, 0));
+        Optional<List<Price>> result = priceRepositoryAdapter.findApplicablePrice(35455L, 1L, LocalDateTime.of(2020, 6, 14, 10, 0, 0));
 
         // Assert that the single result is returned, regardless of priority
         assertTrue(result.isPresent());
-        assertEquals(lowerPriorityPriceEntity.getProductId(), result.get().getProductId());
-        assertEquals(lowerPriorityPriceEntity.getPrice(), result.get().getPrice());
+        assertNotNull(result.get().get(0));
+        assertEquals(higherPriorityPriceEntity.getProductId(), result.get().get(0).getProductId());
+        assertEquals(higherPriorityPriceEntity.getPrice(), result.get().get(0).getPrice());
     }
 
     @Test
@@ -102,7 +105,7 @@ class PriceRepositoryAdapterTest {
                 .thenReturn(List.of());
 
         // Call the adapter method
-        Optional<Price> result = priceRepositoryAdapter.findApplicablePrice(35455L, 1L, LocalDateTime.of(2020, 6, 14, 10, 0, 0));
+        Optional<List<Price>> result = priceRepositoryAdapter.findApplicablePrice(35455L, 1L, LocalDateTime.of(2020, 6, 14, 10, 0, 0));
 
         // Assert that no result is returned
         assertTrue(result.isEmpty());
