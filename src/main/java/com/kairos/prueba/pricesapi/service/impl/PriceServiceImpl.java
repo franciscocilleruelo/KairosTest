@@ -1,6 +1,7 @@
 package com.kairos.prueba.pricesapi.service.impl;
 
 import java.time.LocalDateTime;
+import java.util.Comparator;
 import java.util.Optional;
 
 import org.springframework.stereotype.Service;
@@ -44,8 +45,9 @@ public class PriceServiceImpl implements PriceService {
      */
     @Override
     public Optional<Price> getApplicablePrice(Long productId, Long brandId, LocalDateTime applicationDate) {
-    	// Delegate the call to the repository to find the applicable prices
+        // Delegate the call to the repository to find the applicable prices
         return priceRepository.findApplicablePrice(productId, brandId, applicationDate)
-                .flatMap(prices -> prices.stream().findFirst()); // Find the first price (highest priority)
+                .flatMap(prices -> prices.stream()
+                    .max(Comparator.comparingInt(Price::getPriority))); // Find the price with the highest priority
     }
 }
